@@ -2,7 +2,7 @@ package inlämn1;
 
 import javax.swing.JOptionPane;
 
-public class Moment1 {
+public class Moment4 {
 	public static String getName() {
 		String Name = JOptionPane.showInputDialog("Vad heter du?");
 		return Name;
