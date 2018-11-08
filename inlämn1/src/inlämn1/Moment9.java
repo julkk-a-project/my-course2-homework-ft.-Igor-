@@ -2,7 +2,7 @@ package inlämn1;
 
 import javax.swing.JOptionPane;
 
-public class moment9 {
+public class Moment9 {
 	public static int getNumber(){
 		int input = Integer.parseInt(JOptionPane.showInputDialog("Ge en nummer"));
 		return input;
