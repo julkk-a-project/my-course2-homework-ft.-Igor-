@@ -17,7 +17,7 @@ public class Moment8 {
 	}
 	public static String checkUdJa(double tal) {
 		if ((tal % 2) == 0) {
-			return "jämnt";
+			return "jï¿½mnt";
 		}
 		else {
 			return "udda";
@@ -50,10 +50,10 @@ public class Moment8 {
 		if (helTal == "heltal") { 
 			String uddaJamnt = checkUdJa(tal);
 			String prim = checkPrim(tal);
-			JOptionPane.showMessageDialog(null, tal + " är ett " + uddaJamnt + " " + helTal + " och " + prim + ".");
+			JOptionPane.showMessageDialog(null, tal + " ï¿½r ett " + uddaJamnt + " " + helTal + " och " + prim + ".");
 		}
 		else {
-			JOptionPane.showMessageDialog(null,  tal + " är ett " + helTal + ".");
+			JOptionPane.showMessageDialog(null,  tal + " ï¿½r ett " + helTal + ".");
 		}
 		
 	}

@@ -2,7 +2,7 @@ package inlämn1;
 
 import javax.swing.JOptionPane;
 
-public class Moment6 {
+public class Moment5 {
 	public static int getArtal() {
 		int artal = Integer.parseInt(JOptionPane.showInputDialog("Ge ett årtal"));
 		return artal;

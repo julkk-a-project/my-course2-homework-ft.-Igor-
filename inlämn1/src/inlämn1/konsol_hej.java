@@ -1,8 +1,8 @@
-package inlï¿½mn1;
+package inlämn1;
 
 import java.util.Scanner;
 
-public class Moment1 {
+public class konsol_hej {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
