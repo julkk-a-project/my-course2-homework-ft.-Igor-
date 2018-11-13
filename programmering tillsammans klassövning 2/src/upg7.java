@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class upg7 {
 
+	//NOTE! the files must pre-exist in the locations defined in code.
+	
 	public static void writer(String Sline) {
 		String [] line = Sline.split("\\|");
 		try {
