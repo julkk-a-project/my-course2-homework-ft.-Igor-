@@ -23,9 +23,7 @@ public class Moment6 {
 		int year = getInt("Give a year");
 		int month = getInt("Give a number for a month");
 		int days = getDays(year,month);
-		JOptionPane.showMessageDialog(null, "Hey! there are "+days+" days in the month with the number "+month+" and year "+year, "Days", 1);
-		
-		
+		JOptionPane.showMessageDialog(null, "Hey! there are "+days+" days in the month with the number "+month+" and year "+year, "Days", 1);	
 	}
 
 }
