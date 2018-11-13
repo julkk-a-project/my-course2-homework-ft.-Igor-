@@ -1,4 +1,4 @@
-package inlämn1;
+package inlï¿½mn1;
 
 import java.util.Scanner;
 
