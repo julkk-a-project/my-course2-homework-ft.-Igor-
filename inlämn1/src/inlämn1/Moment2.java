@@ -1,4 +1,4 @@
-package inlämn1;
+package inlï¿½mn1;
 
 import javax.swing.JOptionPane;
 
@@ -23,7 +23,7 @@ public class Moment2 {
 		double diameter = getDiameter();
 		double omkrets = getOmkrets(diameter);
 		double area = getArea(diameter);
-		JOptionPane.showMessageDialog(null, "Cirkelns area är " + area + " kvadrat cm.\nCirkelns omrets är " + omkrets + " cm.");
+		JOptionPane.showMessageDialog(null, "Cirkelns area ï¿½r " + area + " kvadrat cm.\nCirkelns omrets ï¿½r " + omkrets + " cm.");
 		
 	}
 
