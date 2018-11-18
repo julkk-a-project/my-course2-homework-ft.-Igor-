@@ -62,7 +62,6 @@ public class Uppg2Moment_5 {
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			int[] lottoRad = getLottoRad();
-			System.out.println(Arrays.toString(lottoRad));
 			int counter = 0;
 			while (true) {
 				counter ++;
