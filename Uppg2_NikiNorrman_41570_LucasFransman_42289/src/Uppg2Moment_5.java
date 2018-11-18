@@ -10,11 +10,11 @@ public class Uppg2Moment_5 {
 			
 			 int[] numbers = new int[7];
 			 ArrayList<Integer> list = new ArrayList<Integer>();
-		        for (int i=1; i < 40; i++) {
+		        for (int i = 1; i < 40; i++) {
 		            list.add(new Integer(i));
 		        }
 		        Collections.shuffle(list);
-		        for (int i=0; i < 7; i++) {
+		        for (int i = 0; i < 7; i++) {
 		            numbers[i] = list.get(i);
 		        }
 		        return numbers;
