@@ -24,7 +24,7 @@ public class Uppg2Moment_5 {
 			int[] numbers = new int[7];
 			for (int i = 0; i < numbers.length; i++) {
 				try {
-				numbers[i] = Integer.parseInt(JOptionPane.showInputDialog("Give 7 numbers from 1-39.\nnumber " + i + "."));
+				numbers[i] = Integer.parseInt(JOptionPane.showInputDialog("Give 7 numbers from 1-39.\nnumber " + (i+1) + "."));
 				if (numbers[i] < 1 || numbers[i] > 39)
 					try {
 						int exception = 1 / 0;
@@ -74,12 +74,11 @@ public class Uppg2Moment_5 {
 				}
 				
 			}
+			String s = "s";
 			if (counter == 1) {
-				JOptionPane.showMessageDialog(null, "You've guessed " + counter + " time.\nCorrect numbers: " + Arrays.toString(lottoRad).replace("[", "").replace("]", ""));
+				s = "";
 			}
-			else {
-			JOptionPane.showMessageDialog(null, "You've guessed " + counter + " times.\nCorrect numbers: " + Arrays.toString(lottoRad).replace("[", "").replace("]", ""));
-			}
+			JOptionPane.showMessageDialog(null, "You've guessed " + counter + " time"+s+".\nCorrect numbers: " + Arrays.toString(lottoRad).replace("[", "").replace("]", ""));
 			}
 		}
 
