@@ -31,10 +31,12 @@ public class Uppg2Moment_5 {
 					}
 				catch (Exception e) {
 					 JOptionPane.showMessageDialog(null, "Give a number between 1-39.");
+					 i -= 1;
 				 }
 				}
 				 catch (Exception e) {
 					 JOptionPane.showMessageDialog(null, "Give only integers.");
+					 i -= 1;
 				 }
 			}
 			return numbers;
