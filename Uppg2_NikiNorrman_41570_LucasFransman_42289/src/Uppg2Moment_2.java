@@ -12,20 +12,18 @@ public class Uppg2Moment_2 {
 	
 	public static void main(String[] args) {
 		int compChoise = (int)(Math.random() * 10 + 1);
-		int playerChoise = getInt("Chose a number that you want the computer to guess!\nhint: the computer will only guess numbers from 1 to 10 :))))");
+		int playerChoise = getInt("Chose a number between 1 and 10 that you want the computer to guess!");
 		String playerClaim = "!";
 		while (!playerClaim.equals("=")) {
 			playerClaim = "!";
 			System.out.println(playerClaim);
 			while (!playerClaim.equals("<") && !playerClaim.equals(">") && !playerClaim.equals("=")) {
-				playerClaim = JOptionPane.showInputDialog("The computer guessed "+compChoise+".\nWas it >, < or = your choise?");
+				playerClaim = JOptionPane.showInputDialog("The computer guessed "+compChoise+".\nWas it <, > or = your choise?");
 			}
-			System.out.println("lol");
-			if (playerClaim.equals(">")) {
-				System.out.println("lollol");
+			if (playerClaim.equals("<")) {
 				compChoise = (int)(Math.random() * (10 - compChoise)) + compChoise+1;
 			}
-			else if (playerClaim.equals("<")) {
+			else if (playerClaim.equals(">")) {
 				compChoise = (int)(Math.random() * (compChoise - 1)) + 1;
 			}
 			else if (playerClaim.equals("=")) {
