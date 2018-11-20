@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Uppg2Moment3 {
+public class Uppg2Moment_3 {
 
 		public static int getInt(String string) {
 			String SInt = JOptionPane.showInputDialog(string);
