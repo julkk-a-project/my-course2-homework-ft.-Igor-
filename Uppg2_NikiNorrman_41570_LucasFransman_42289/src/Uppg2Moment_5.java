@@ -54,7 +54,7 @@ public class Uppg2Moment_5 {
 		private static String getOutput(ArrayList <Integer> compare) { // Gör userns rätta gissningar till en sträng
 			String rightStr = "";
 			for (int i : compare) {
-				right += Integer.toString(i) + " ";
+				rightStr += Integer.toString(i) + " ";
 			}
 			return rightStr;
 		}
@@ -76,7 +76,8 @@ public class Uppg2Moment_5 {
 
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
-			int[] lottoRad = getLottoRad(); 
+			int[] lottoRad = getLottoRad();
+			System.out.println(Arrays.toString(lottoRad));
 			int counter = 0; 
 			while (true) {
 				counter ++;
