@@ -16,7 +16,6 @@ public class Uppg2Moment_2 {
 		String playerClaim = "!";
 		while (!playerClaim.equals("=")) {
 			playerClaim = "!";
-			System.out.println(playerClaim);
 			while (!playerClaim.equals("<") && !playerClaim.equals(">") && !playerClaim.equals("=")) {
 				playerClaim = JOptionPane.showInputDialog("The computer guessed "+compChoise+".\nWas it <, > or = your choise?");
 			}
