@@ -23,14 +23,13 @@ public class Uppg2Moment_3 {
 		}
 		
 		public static void main(String[] args) {
-			int compChoise = (int)5;
+			int compChoise = 5;
 			int playerChoise = getInt("Chose a number between 1 and 10 that you want the computer to guess!");
 			int mini = 1;
 			int maxi = 10;
 			String playerClaim = "!";
 			while (!playerClaim.equals("=")) {
 				playerClaim = "!";
-				System.out.println(playerClaim);
 				while (!playerClaim.equals("<") && !playerClaim.equals(">") && !playerClaim.equals("=")) {
 					playerClaim = JOptionPane.showInputDialog("The computer guessed "+compChoise+".\nIs "+compChoise+" <, > or = your choise?");
 				}
