@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Uppg2Moment_4 {
 
-	public static int getInt(String string) {
+	public static int getInt(String string) { //legacy code
 		String SInt = JOptionPane.showInputDialog(string);
 		int amount = -1;
 		try {
@@ -21,63 +21,72 @@ public class Uppg2Moment_4 {
 			return amount;
 		}
 	}
-		public static int minihandler(int x, int mini) {
+		public static int minihandler(int x, int mini) { //handels how mini variable is changed.
 			if (mini == x) {
 				return mini;
 			}
 			if (x > mini) {
 				return x;
 			} else {
-				return -1;
+				return -1; //-1 leads to break
 			}
 		}
-		public static int maxihandler(int x, int maxi) {
+		public static int maxihandler(int x, int maxi) { //handels how maxi variable is changed.
 			if (maxi == x) {
 				return maxi;
 			}
 			if (x < maxi) {
 				return x;
 			} else {
-				return -1;
+				return -1; //-1 leads to break
 			}
 		}
-		public static boolean testMinMax(int mini, int maxi) {
+		public static boolean testMinMax(int mini, int maxi) { //if returns true, loop ends.
 			if (maxi == 1) {
-				return true;
+				return true; //when user says the number is smaller than 1, then we know he's lying
 			}
 			else if ((maxi - mini) <= 1) {
-				return true;
+				return true; //if say the number is smaller than 3 and larger than 4, and it has to be an integer, then there are no more options.
 			}
-			if ((maxi-mini) == 1) {
-				return true;
+			if ((maxi-mini) <= 1) {
+				return true; //if say the number is smaller than 3 and larger than 4, and it has to be an integer, then there are no more options.
 			} else {
-				return false;
+				return false; //...else, user is not cheating.
 			}
 		}
 		
 		public static void main(String[] args) {
 			boolean breaker = false; //used to break the loop if a cheat is noticed.
-			int times = 0;
-			int compChoise = (int)(Math.random() * 10 + 1);
-			int playerChoise = getInt("Chose a number between 1 and 10 that you want the computer to guess!");
+			int times = 0; //used to count amount of guesses
+			int compChoise = (int)(Math.random() * 10 + 1); //initial computer guess
+			int playerChoise = getInt("Chose a number between 1 and 10 that you want the computer to guess!\n(This number is just to see if you remember what you originally picked.)"); //flavour text. no "real" function, appart from the number at the end to show if you actually remembered your own number.
 			String playerClaim = "!";
+			//mini and maxi have to be offset by one, so that the computer can guess 1 or 10, w/o claiming cheating. (could have also dealt with this in mini/maxi handler, but this method is lighter on computer resources.)
 			int mini = 0;
-			int maxi = 11;
-			while (!playerClaim.equals("=") && !breaker == true) { //loop until user says computer is right.
-				playerClaim = "!";
-				while (!playerClaim.equals("<") && !playerClaim.equals(">") && !playerClaim.equals("=")) {
+			int maxi = 11; 
+			while (!playerClaim.equals("=") && !breaker == true) { //loop until user says computer is right, or computer says user is cheating.
+				playerClaim = "!"; //to reset variable playerClaim.
+				while (!playerClaim.equals("<") && !playerClaim.equals(">") && !playerClaim.equals("=")) { //Require user to type correctly.
 					playerClaim = JOptionPane.showInputDialog("The computer guessed "+compChoise+".\nWas it <, > or = your choise?");
 				}
 				times ++;
-				if (playerClaim.equals("<")) {
+				if (playerClaim.equals("<")) { //handles < event.
 					mini = minihandler(compChoise, mini);
-					while (compChoise == mini) {
-						compChoise = (int) (Math.random()*(maxi-mini) + mini);
+					if (mini == maxi) {
+						break;
 					}
+					if (mini == -1) { //so minihandler can break loop
+						break;
+					}
+					compChoise = (int) (Math.random()*(maxi-mini-1) + mini+1);
+					
 				}
-				else if (playerClaim.equals(">")) {
+				else if (playerClaim.equals(">")) { //handles > event.
 					maxi = maxihandler(compChoise, maxi);
-					compChoise = (int) (Math.random()*(maxi-mini) + mini);
+					if (maxi == -1) { //so maxihandler can break loop
+						break;
+					}
+					compChoise = (int) (Math.random()*(maxi-mini-1) + mini+1);
 				}
 				breaker = testMinMax(mini, maxi);
 			}
