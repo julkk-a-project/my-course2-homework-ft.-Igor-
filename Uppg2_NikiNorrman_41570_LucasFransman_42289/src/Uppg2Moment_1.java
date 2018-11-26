@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class Uppg2Moment_1 {
 
-	public static int getInt(String string) {
+	public static int getInt(String string) { //forces user to input correct values
 		String SInt = JOptionPane.showInputDialog(string);
 		int amount = -1;
 		try {
@@ -21,10 +21,10 @@ public class Uppg2Moment_1 {
 	}
 	
 	public static void main(String[] args) {
-		int compChoise = (int)(Math.random() * 10 + 1);
+		int compChoise = (int)(Math.random() * 10 + 1); //computer generates number from 1 to 10
 		int playerChoise = getInt("What do you think the computer chose?\nhint: it's something between 1 and 10!");
 		int times = 0;
-		while (playerChoise != compChoise) {
+		while (playerChoise != compChoise) { //loop until guess == correct.
 			playerChoise = getInt("Haahaa! wrong. try again!");
 			times ++;
 		}
