@@ -1,4 +1,3 @@
-package moment1;
 
 import javax.swing.JOptionPane;
 
