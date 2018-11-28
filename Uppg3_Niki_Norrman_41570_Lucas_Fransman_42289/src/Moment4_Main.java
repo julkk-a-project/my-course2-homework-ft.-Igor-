@@ -1,26 +1,45 @@
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Moment4_Main {
 
 	public static void main(String[] args) {
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Antal personer."));
 		String finalStr = "\n";
 		Person person = null;
 		String name = "";
 		String soc = "";
+		String getName = "";
 		int counter = 0;
+		ArrayList <Person> listOfPersons = new ArrayList <> ();
 		while (true) {
-			String getName = getNameAndSoc();
+			getName = getNameAndSoc();
 			if (getName != null) {
 				counter++;
 				name = getName(getName);
 				soc = getSoc(getName);
 				person = createPerson(name, soc);
-				finalStr += person.getDescription(name, soc) + "\n";
+				listOfPersons.add(person);
 			} else {
 				break;
 			}
+			
+			if (listOfPersons.size() == n) {
+				break;
+			}
 		}
-		JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr + "             ");
+		
+		for (int i = listOfPersons.size() - 1; i > -1; i--) {
+			 Person listPerson = listOfPersons.get(i);
+			 finalStr += listPerson.getDescription(listPerson.getName(), listPerson.getSoc()) + "\n";
+		}
+		
+		if (listOfPersons.size() == n) {
+			JOptionPane.showMessageDialog(null,"Du matade in max antalet personer.\nDe senaste " + counter + " personerna du givit var: " + finalStr);
+		} else {
+			JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr);
+		}
 	}
 
 	private static String getSoc(String name) { 
