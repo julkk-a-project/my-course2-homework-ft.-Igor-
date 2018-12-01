@@ -1,5 +1,5 @@
 
-public class AbstractFordon {
+public abstract class AbstractFordon {
 	public String regNr;
 	public String owner;
 	
