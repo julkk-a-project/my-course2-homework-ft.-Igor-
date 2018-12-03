@@ -6,9 +6,9 @@ import java.io.*;
 public class Moment1 {
 
 	public static void main(String[] args) {
-		int playCounter = 0;
-		int winCounter = 0;
-		int lostCounter = 0;
+		int playCounter = 0; // hur många spel
+		int winCounter = 0; // hur många vinster
+		int lostCounter = 0; // hur många förluster
 		int choice = playing("Do you wanna play?\nType Y if yes or N if no.");
 		while (choice == 1) {
 			playCounter++;
@@ -23,6 +23,10 @@ public class Moment1 {
 			}
 			getOutput(playCounter, winCounter, lostCounter);
 		}
+	
+	/*
+	 * Kollar om usern vill spela. 
+	*/
 	
 	private static int playing(String question) {
 		String play = "";
@@ -41,59 +45,72 @@ public class Moment1 {
 			return 0;
 		}
 	}
+	
+	/*
+	 * Prints output
+	 */
 
 	private static void getOutput(int times, int win ,int lost) {
 		JOptionPane.showMessageDialog(null, "You played " + times + " x.\nYou won " + win + " x.\nYou lost " + lost + " x.");
 	}
 
-	private static int hangMan(String correct) {
+	/*
+	 * Hela spelet 
+	 */
+	
+	private static int hangMan(String correct) { 
 		String list = "";
-		for(int i = 0; i < correct.length(); i++) {
+		for(int i = 0; i < correct.length(); i++) { // skapar en sträng med "-" för varje bokstav i det rätta ordet
 			list += "-";
 		}
 		
-		list.toCharArray();
+		list.toCharArray(); 
 		int counter = 7;
 		int checker = 0;
-		while (counter > 0) {
+		while (counter > 0) { // loopar tills 7 fel gissningar.
 		
 			checker = 0;	
-			String guess = getUserGuess(counter);
+			String guess = getUserGuess(counter); // user gissning.
 			
-			for (int i = 0; i < correct.length(); i++) {
+			for (int i = 0; i < correct.length(); i++) { // kollar om userns gissning finns i ordet
 				
-				String correctChar = Character.toString(correct.charAt(i));
+				String correctChar = Character.toString(correct.charAt(i));    
 				
-				if (guess.equals(correctChar)) {
+				if (guess.equals(correctChar)) { 
 					
-					checker = 1;
+					checker = 1;      
 					
-					for (int i1 = 0; i1 < list.length(); i1++) {
-						char replaceChar = correctChar.charAt(0);
+					for (int i1 = 0; i1 < list.length(); i1++) { // skapar en lista med userns rätta gissningar ex "--a--a-"
+						char replaceChar = correctChar.charAt(0); 
 						char[] newList = list.toCharArray();
 						newList[i] = replaceChar;
-						list = new String(newList);
+						list = new String(newList); 
 					}
 				} 
-				if (list.contains("-") == false) {
+				if (list.contains("-") == false) { // gissat alla bokstäver rätt 
 					JOptionPane.showMessageDialog(null, "Well done " + correct + " is the right word.");
 					return 1;
 				}
 			}
-			JOptionPane.showMessageDialog(null, list);
-			if (checker == 0) {
+			JOptionPane.showMessageDialog(null, list); 
+			if (checker == 0) { // håller reda på mängden felgissningar
 			counter--;
 			}
-			if (counter <= 0) {
+			if (counter <= 0) { // förlorat
 				JOptionPane.showMessageDialog(null, "You lost.\nRight word: " + correct + ".");
 				return 0;
 		}
-			if (list.contains("-") == false) {
+			if (list.contains("-") == false) { // vann
 				return 1;
 			}
 		}
 		return 2;
 	}
+	
+	/*
+	 * Tar userns gissning. 
+	 */
+	
 	private static String getUserGuess(int x) {
 		String letter = "";
 		
@@ -114,7 +131,9 @@ public class Moment1 {
 		return letter;
 		}
 		
-	
+	/*
+	 * Tar ett random ord från words.txt. 
+	 */
 	
 	public static String getWord() {
 		ArrayList <String> list = new ArrayList <> ();
