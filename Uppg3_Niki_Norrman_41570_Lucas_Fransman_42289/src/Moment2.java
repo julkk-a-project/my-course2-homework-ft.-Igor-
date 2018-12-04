@@ -20,30 +20,32 @@ public class Moment2 {
 		JOptionPane.showMessageDialog(null,finalStr.replaceAll("null", ""), "Namn och Socialsignum", 1);
 	}
 
-	private static String [][] fillArray() {
+	private static String [][] fillArray() { // fyller arrayen med namn och social signum
 		String[][] nameArray = new String[5][2];
-		for (int i = 0; i < 5; i++) {
-			String name = getNameAndSoc();
-			if (name == null) {
+		for (int i = 0; i < 5; i++) { // 5 ggr eller tills avbryt 
+			String name = getNameAndSoc(); 
+			if (name == null) { // avbryt = break
 				break;
 			}
 			try {
-				String[] parts = name.split(",");
-				String part1 = parts[0]; 
-				String part2 = parts[1];
-				for (int i1 = 0; i1 < 5; i1++) {
+				String[] parts = name.split(","); // splittar meningen vid kommatecknet
+				String part1 = parts[0]; // namn
+				String part2 = parts[1]; // social signum
+				for (int i1 = 0; i1 < 5; i1++) { // fyller arrayen 
 					nameArray[i][0] = part1;
 					nameArray[i][1] = part2;
 				} 
 			} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Check input.");
-					i--;
+					i--;   
 				}
 				}
 				return nameArray;
 			}
 		
-	
+	/*
+	 * gets name and social signum
+	 */
 
 	private static String getNameAndSoc() {
 		String nameAndSoc = "Error";

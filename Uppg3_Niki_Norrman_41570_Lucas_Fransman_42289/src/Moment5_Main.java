@@ -48,10 +48,14 @@ public class Moment5_Main {
 		}
 	
 
-	private static String getSoc(String name) { // gets socialsignum
+	private static String getSoc(String name) { // returns social signum
 		String part2 = "";
+		try {
 			String[] parts = name.split(",");
 			part2 = parts[1];
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Check input.");
+		}
 			return part2;
 	}
 
