@@ -18,8 +18,12 @@ public class Moment3_Main {
 				break;
 			}
 		}
-		JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDu har givit " + counter + " personer.\nDen senaste personen du matade in var: " + person.getDescription(name, soc) + "."); // output
+		utskrift(counter, name, soc, person);
 		}
+
+	private static void utskrift(int counter, String name, String soc, Person person) {
+		JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDu har givit " + counter + " personer.\nDen senaste personen du matade in var: " + person.getDescription(name, soc) + "."); // output
+	}
 
 	private static String getSoc(String name) { // returns social signum
 		String part2 = "";

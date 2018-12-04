@@ -24,9 +24,9 @@ public class Moment6_Main {
 		String name = "";
 		String soc = "";
 		int counter = 0;
+		Methods x = new Methods(); // Methods constructor
 		ArrayList <Person> listOfPersons = new ArrayList <> (); // lista för personer
 		while (true) {
-			Methods x = new Methods(); // Methods constructor
 			String getName = x.getNameAndSoc();
 			if (getName != null) {
 				while (!getName.contains(",")) { // fångar felaktiga inputs
@@ -57,13 +57,7 @@ public class Moment6_Main {
 				break;
 			}
 		}
-		
-		for (int i = listOfPersons.size() - 1; i > -1; i--) {  // gör så att det senaste namnet visas högst uppe
-			 Person listPerson = listOfPersons.get(i);
-			 finalStr += listPerson.getDescription(listPerson.getName(), listPerson.getSoc()) + "\n";
-		}
-		
-			JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr); // output
+		x.utskrift(counter, name, soc, person, listOfPersons, n, finalStr);
 		}
 	
 }

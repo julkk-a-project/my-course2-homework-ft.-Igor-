@@ -9,6 +9,16 @@ import javax.swing.JOptionPane;
 
 public class Methods {
 	
+	public void utskrift(int counter, String name, String soc, Person person, ArrayList<Person> listOfPersons,
+			int n, String finalStr) {
+		for (int i = listOfPersons.size() - 1; i > -1; i--) {  // gör så att det senaste namnet visas högst uppe
+			 Person listPerson = listOfPersons.get(i);
+			 finalStr += listPerson.getDescription(listPerson.getName(), listPerson.getSoc()) + "\n";
+		}
+		
+			JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr); // output	
+	}
+	
 	public String getSoc(String name) { // returns social signum
 		String part2 = "";
 		try {
@@ -44,11 +54,15 @@ public class Methods {
 	public String getNameAndSoc() { 
 		String nameAndSoc = "Error";
 		try {
-			nameAndSoc =  JOptionPane.showInputDialog("Skriv in namn och socialsignum separerat med , tecken  \nex. Kalle Karlsson, 280295367H");
+			nameAndSoc = JOptionPane.showInputDialog("Skriv in namn och socialsignum separerat med , tecken. \nKom ihåg mellanrum mellan för och efternamn  \nex. Kalle Karlsson, 280295367H");
+			String name = getName(nameAndSoc);
+			if (!name.contains(" ") || name.contains("0") || name.contains("2") || name.contains("3") || name.contains("4") || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8") || name.contains("9") || name.contains("10")) { // error om namnet innehåller siffror
+				int z = 1 / 0; // error om siffror i namnet eller inte mellanrum mellan för och efternamn
+			}
 			if (nameAndSoc == null) {
 				return null;
 			}
-		} catch (Exception e) {
+			} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Check input.");
 			getNameAndSoc();
 		}
@@ -114,8 +128,5 @@ public class Methods {
 		
 			JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr); // output*/
 	}
-	public String Fornamn(String namn) {
-		String[] forNamn = (namn.split(" "));
-		return forNamn[0];
-	}
+	
 }

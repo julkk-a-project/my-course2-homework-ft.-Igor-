@@ -29,17 +29,20 @@ public class Moment4_Main {
 				break;
 			}
 		}
-		
+		utskrift(counter, name, soc, person, listOfPersons, n, finalStr);
+	}
+
+	private static void utskrift(int counter, String name, String soc, Person person, ArrayList <Person> listOfPersons, int n, String finalStr) {
 		for (int i = listOfPersons.size() - 1; i > -1; i--) { // gör så att det senaste namnet visas högst uppe
 			 Person listPerson = listOfPersons.get(i);
 			 finalStr += listPerson.getDescription(listPerson.getName(), listPerson.getSoc()) + "\n";
 		}
-		
 		if (listOfPersons.size() == n) { // output
 			JOptionPane.showMessageDialog(null,"Du matade in max antalet personer.\nDe senaste " + counter + " personerna du givit var: " + finalStr);
 		} else { // output
 			JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDe senaste " + counter + " personerna du givit var: " + finalStr);
 		}
+		
 	}
 
 	private static String getSoc(String name) { // returns social signum
