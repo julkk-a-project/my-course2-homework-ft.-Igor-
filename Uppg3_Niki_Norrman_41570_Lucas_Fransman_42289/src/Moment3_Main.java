@@ -14,21 +14,29 @@ public class Moment3_Main {
 				name = getName(getName);
 				soc = getSoc(getName);
 				person = createPerson(name, soc);
-			} else {
+			} else { // if avbryt break
 				break;
 			}
 		}
-		JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDu har givit " + counter + " personer.\nDen senaste personen du matade in var: " + person.getDescription(name, soc) + ".");
+		utskrift(counter, name, soc, person);
+		}
+
+	private static void utskrift(int counter, String name, String soc, Person person) {
+		JOptionPane.showMessageDialog(null,"Du tryckte cancel.\nDu har givit " + counter + " personer.\nDen senaste personen du matade in var: " + person.getDescription(name, soc) + "."); // output
 	}
 
-	private static String getSoc(String name) { 
+	private static String getSoc(String name) { // returns social signum
 		String part2 = "";
+		try {
 			String[] parts = name.split(",");
 			part2 = parts[1];
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Check input.");
+		}
 			return part2;
 	}
 
-	private static String getName(String name) {
+	private static String getName(String name) { // returns namnet
 		String part1 = ""; 
 		try {
 			String[] parts = name.split(",");
@@ -40,10 +48,14 @@ public class Moment3_Main {
 		return part1;
 	}
 
-	private static Person createPerson(String name, String soc) {
+	private static Person createPerson(String name, String soc) { // calls person constructor
 		Person person = new Person(name, soc);
 		return person;
 	}
+	
+	/*
+	 * gets name and social signum
+	 */
 	
 	private static String getNameAndSoc() {
 		String nameAndSoc = "Error";
