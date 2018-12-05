@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Moment1_Main {
+public class Moment2_Main {
 
 
 
@@ -12,7 +12,7 @@ public class Moment1_Main {
 		while (choice != -1 && choice != 2) { 
 			choice = mainMenu(listLength);
 			if (choice == 0) {
-				int max = getInt("how many cars do you want to register?\n(Note that you can still register " + (10-listLength) + " cars.)", 10-listLength); //get integer from user
+				int max = getInt("how many vehicles do you want to register?\n(Note that you can still register " + (10-listLength) + " vehicles.)", 10-listLength); //get integer from user
 				for (int i = 0; i < max; i++) {
 					listLength++;
 					itemAdder(fordonar, listLength-1);
@@ -84,7 +84,7 @@ public class Moment1_Main {
 	public static String[] getCarInfo(){
 		String[] buf2 = new String[2];
 		try {
-			String buf1 = JOptionPane.showInputDialog("Type Registration number and name of owner,\n seperated by a [,]comma");
+			String buf1 = JOptionPane.showInputDialog("Type the following information:\n[Registration nr], [Owner], [Manufacturer], [Model], [number of seats]*\n seperated by a [,]comma\n(*Note that not naming the number of seats will result in a registration of a truck...\n...and naming results in registering an ordenary car.)");
 		
 			buf2 = buf1.split(",");
 			if (buf2.length == 2) {
