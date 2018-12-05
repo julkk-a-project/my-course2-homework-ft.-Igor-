@@ -51,11 +51,14 @@ public class Methods {
 	
 	public String getNameAndSoc() { 
 		String nameAndSoc = "Error";
+		String name = "";
 		try {
 			nameAndSoc = JOptionPane.showInputDialog("Skriv in namn och socialsignum separerat med , tecken. \nKom ihåg mellanrum mellan för och efternamn  \nex. Kalle Karlsson, 280295367H");
-			String name = getName(nameAndSoc);
-			if (!name.contains(" ") || name.contains("0") || name.contains("2") || name.contains("3") || name.contains("4") || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8") || name.contains("9") || name.contains("10")) { // error om namnet innehåller siffror
-				int z = 1 / 0; // error om siffror i namnet eller inte mellanrum mellan för och efternamn
+			if(nameAndSoc != null) {
+				name = getName(nameAndSoc);
+				if (!name.contains(" ") || name.contains("0") || name.contains("2") || name.contains("3") || name.contains("4") || name.contains("5") || name.contains("6") || name.contains("7") || name.contains("8") || name.contains("9") || name.contains("10")) { // error om namnet innehåller siffror
+					int z = 1 / 0; // error om siffror i namnet eller inte mellanrum mellan för och efternamn
+				}
 			}
 			if (nameAndSoc == null) {
 				return null;
