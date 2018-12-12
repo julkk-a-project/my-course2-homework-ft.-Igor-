@@ -6,6 +6,13 @@ public class LastBil extends Fordon {
 		super(regNr, owner);
 		this.maker = maker;
 		this.model = model;
+		this.type = 2;
+	}
+	public String getModel() {
+		return this.model;
+	}
+	public String getMaker() {
+		return this.maker;
 	}
 
 }
