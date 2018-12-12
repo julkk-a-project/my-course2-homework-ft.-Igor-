@@ -2,8 +2,8 @@
 public class PersonBil extends Fordon {
 	public String maker;
 	public String model;
-	public String seats;
-	public PersonBil(String regNr, String owner, String maker, String model, String seats) {
+	public int seats;
+	public PersonBil(String regNr, String owner, String maker, String model, int seats) {
 		super(regNr, owner);
 		this.maker = maker;
 		this.model = model;
@@ -16,7 +16,7 @@ public class PersonBil extends Fordon {
 	public String getMaker() {
 		return this.maker;
 	}
-	public String getSeats() {
+	public int getSeats() {
 		return this.seats;
 	}
 

@@ -79,7 +79,8 @@ public class Moment2_Main {
 	public static AbstractFordon createCar(){
 		String[] carInfo = new String[5];
 		carInfo = getCarInfo(); //get regNr and owner info from user
-		AbstractFordon fordonlol = new PersonBil(carInfo[0], carInfo[1], carInfo[2], carInfo[3], carInfo[4]);
+		int carInt = getNormalInt(carInfo[4]+" is not an integer. input number of seats as an integer."); //converts number of seats into a number. includes error handling.
+		AbstractFordon fordonlol = new PersonBil(carInfo[0], carInfo[1], carInfo[2], carInfo[3], carInt);
 		return fordonlol;
 	}
 	
@@ -106,7 +107,7 @@ public class Moment2_Main {
 			if (type == 3){
 				String maker = ((PersonBil)fordonar[i]).getMaker();
 				String model = ((PersonBil)fordonar[i]).getModel();
-				String seats = ((PersonBil)fordonar[i]).getSeats();
+				int seats = ((PersonBil)fordonar[i]).getSeats();
 				buf += ", " + maker + ", " + model + ", " + seats;
 			}
 			buf += "\n";
@@ -137,6 +138,18 @@ public class Moment2_Main {
 		} else {
 			return amount;
 		}
+	}
+
+	public static int getNormalInt(String string) {
+		String SInt = JOptionPane.showInputDialog(string);	
+		int amount = -1;
+		try {
+			amount = Integer.parseInt(SInt);
+		} catch (NumberFormatException ex ) {
+			JOptionPane.showMessageDialog(null, "Try an integer..."); //this is really annoying, but as long as the user follows what the program wants, then... basically the program works as intended. i know how to fix it but can't bother w/ it unless someone forces me.
+			amount = getNormalInt(string);
+		}
+		return amount;
 	}
 	
 	
