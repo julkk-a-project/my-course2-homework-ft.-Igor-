@@ -29,13 +29,21 @@ public class Car {
 	
 	
 	
-	
+
 	public double energyLoss(double distance, Car Car){
 		
 		double ultDist = (distance - 50) / distance;
 		double energyTransfer = 0.5*ultDist*speed*speed;
 		double speedChange = energyTransfer / this.mass;
-		System.out.println(this.name +" "+ speedChange);
+		//System.out.println(this.name +" "+ speedChange);
+		return speedChange;
+	}
+	public double energyLoss2(double distance, Car Car){
+		
+		double ultDist = (distance - 50) / distance;
+		double energyTransfer = 0.005*ultDist*speed*speed;
+		double speedChange = energyTransfer / this.mass;
+		//System.out.println(this.name +" "+ speedChange);
 		return speedChange;
 	}
 	
@@ -48,10 +56,12 @@ public class Car {
 		double rope = this.location - Car .location;
 		if (distance >= 50) {
 			if (rope >= 0) {
-				this.speed -= energyLoss(distance, Car);
+				this.speed -= energyLoss2(distance, Car);
+				this.location -= energyLoss(distance, Car);
 			}
 			else {
-				this.speed += energyLoss(distance, Car);
+				this.speed += energyLoss2(distance, Car);
+				this.location += energyLoss(distance, Car);
 			}
 		}
 		this.speed += engine(speed);
