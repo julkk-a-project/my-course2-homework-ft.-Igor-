@@ -36,7 +36,7 @@ public class tableMaker extends JFrame {
 					data [x][i] = list.get(x).getMarke();
 				else if(i == 3)
 					data [x][i] = list.get(x).getModell();
-				if (list.get(x) instanceof lastBil) {
+				if (list.get(x) instanceof lastBil) { //endast om lastbil annars noData
 				if(i == 5)
 					data [x][i] = list.get(x).getLoad();
 				else if(i == 4)
@@ -59,7 +59,7 @@ public class tableMaker extends JFrame {
 					else if(i == 8)
 						data [x][i] = noData;
 				}
-				if (list.get(x) instanceof personBil) {
+				if (list.get(x) instanceof personBil) {//endast om personbil annars noData
 				if(i == 9)
 					data [x][i] = list.get(x).getMotorVol();
 				else if(i == 10)

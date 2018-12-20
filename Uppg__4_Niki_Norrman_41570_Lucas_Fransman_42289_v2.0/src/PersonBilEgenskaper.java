@@ -7,6 +7,6 @@ public class PersonBilEgenskaper implements IEgenskaper {
 
 	@Override
 	public String getProperties() {
-		return "personbil";
+		return "jag är en personbil";
 	}
 }

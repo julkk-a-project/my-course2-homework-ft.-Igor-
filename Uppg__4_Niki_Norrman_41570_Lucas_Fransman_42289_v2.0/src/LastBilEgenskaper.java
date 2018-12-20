@@ -7,7 +7,7 @@ public class LastBilEgenskaper implements IEgenskaper {
 
 	@Override
 	public String getProperties() {
-		return "Lastbil";
+		return "jag är en lastbil";
 	}
 
 }
