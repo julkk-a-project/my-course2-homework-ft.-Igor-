@@ -48,16 +48,21 @@ public class moment1to7_main {
 								
 							else if (x.length == 8) { //skapar lastbil objektet
 								fordon = new lastBil(x[0],x[1],x[2],x[3],x[4],Integer.parseInt(x[5]),x[6],x[7]);
-							} 	
+							} 
+							else if (x.length == 2) { //om man trycker på avbryt eller krysset
+								z = 1;
+								y++;
+							}
 								
 						} catch(Exception e) { //if exception register pånytt och wile loopen hålls true mha checker
 								JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
 								if(fordonInfo == 0) {
 									x = fordon.register(0);
-									checker = 1;
+									checker = 1; //keeps the while loop going
+									
 								} else if(fordonInfo == 1) {
 									x = fordon.register(1);
-									checker = 1;
+									checker = 1; //keeps the while loop going
 								}
 						}
 					}

@@ -26,11 +26,17 @@ public class fordon extends abstractFordon {
 	
 	public String [] register(int x) { //skapar en lista med all data
 		String [] info = new String[0];
+		String infa = "x";
 		if (x == 0) { //if personbil
 			try {
-				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, antal säten, motorvolym, hästkrafter, förbrukning och km\nex abc-123,stina,lexus,i200,5,2.2,201,8.3,20000").split(",");	
+				infa = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, antal säten, motorvolym, hästkrafter, förbrukning och km\nex abc-123,stina,lexus,i200,5,2.2,201,8.3,20000");
+				if(infa == null) { //om man trycker på avbryt eller krysset
+					String z = "x,x";
+					return z.split(","); 
+				}
+				info = infa.split(",");
 				if(info.length != 9) {
-					int z = 1 / 0;
+					int z = 1 / 0; //thwrows exception
 				}
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
@@ -38,9 +44,15 @@ public class fordon extends abstractFordon {
 			}
 		} else if (x == 1) { //if lastbil
 			try {
-				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, last, kapacitet, start och mål\nex abc-129,Stigu,Volvo,truck,tomater,15,Närpes,Helsingfors ").split(",");
+				infa = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, last, kapacitet, start och mål\nex abc-129,Stigu,Volvo,truck,tomater,15,Närpes,Helsingfors ");
+				
+				if(infa == null) { //om man trycker på avbryt eller krysset
+					String z = "x,x";
+					return z.split(","); 
+				}
+				info = infa.split(",");
 				if(info.length != 8) {
-					int z = 1 / 0;
+					int z = 1 / 0; //thwrows exception
 				}
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
