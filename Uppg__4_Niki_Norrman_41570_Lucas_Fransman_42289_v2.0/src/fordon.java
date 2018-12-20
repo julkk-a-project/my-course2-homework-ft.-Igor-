@@ -72,13 +72,18 @@ public class fordon extends abstractFordon {
 		while(x == 1) {
 			x = 0;
 			reg = JOptionPane.showInputDialog("Ange registernummer\nex abc-123");
+			if(reg == null) {
+				reg = " ";
+			}
 			if(reg.length() != 7 || reg.contains("-") == false) {
 				JOptionPane.showMessageDialog(null, "Kolla att du gett registernummret i rätt format");
 				x = 1;
 			}
 		}
+		int y = 0;
 		for(int i = 0; i < list.size(); i++) {
 			if(reg.equals(list.get(i).getRegNr())) {
+				y = 1;
 				checkList.add(list.get(i));
 				tableMaker checkOut = new tableMaker(1, checkList);
 				checkOut.create();
@@ -88,7 +93,9 @@ public class fordon extends abstractFordon {
 				checkOut.setTitle(list.get(i).getRegNr());
 			}
 		}
-		
+		if (y == 0) {
+			JOptionPane.showMessageDialog(null, "fordonet du söker finns ej");
+		}
 	}
 		
 	}

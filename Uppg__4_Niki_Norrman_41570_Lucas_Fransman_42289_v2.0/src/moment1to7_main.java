@@ -25,6 +25,8 @@ public class moment1to7_main {
 						break;
 					} else if(fordonInfo == 3) {
 						fordon.check(list);
+						z = 1;
+						y++;
 					} else if(fordonInfo == 4) {
 						int check = confirm();
 						if(check == 0 || check == -1) {
