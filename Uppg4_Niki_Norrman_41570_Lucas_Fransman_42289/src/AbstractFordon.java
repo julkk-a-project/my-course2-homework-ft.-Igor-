@@ -13,4 +13,6 @@ public abstract class AbstractFordon {
 	public int getType() {
 		return this.type;
 	}
+	
+	public abstract String getProperties();
 }

@@ -10,6 +10,13 @@ public class PersonBil extends Fordon {
 		this.seats = seats;
 		this.type = 3;
 	}
+	
+
+	@Override
+	public String getProperties() {
+		return super.getProperties()+", "+model+", "+maker+", "+seats;
+	}
+	
 	public String getModel() {
 		return this.model;
 	}
