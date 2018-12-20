@@ -28,8 +28,7 @@ public class fordon extends abstractFordon {
 		String [] info = new String[0];
 		if (x == 0) {
 			try {
-				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, antal säten, motorvolym, hästkrafter, förbrukning och km\nex abc-123,stina,lexus,i200,5,2.2,201,8.3,20000").split(",");
-				System.out.println(info);
+				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, antal säten, motorvolym, hästkrafter, förbrukning och km\nex abc-123,stina,lexus,i200,5,2.2,201,8.3,20000").split(",");	
 				if(info.length != 9) {
 					int z = 1 / 0;
 				}
