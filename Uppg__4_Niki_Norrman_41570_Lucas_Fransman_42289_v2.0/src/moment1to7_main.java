@@ -9,31 +9,31 @@ public class moment1to7_main {
 		int z = 0;
 		int y = 1;
 		String [] x = null;
-		ArrayList <fordon> list = new ArrayList <fordon>();
+		ArrayList <fordon> list = new ArrayList <fordon>();//lista för fordon
 		fordon fordon = new fordon("","");
-				for (int i = 0; i < list.size() + y; i++) {
+				for (int i = 0; i < list.size() + y; i++) { 
 					z = 0;
-					int fordonInfo = fordon.buttons(counter, list);
+					int fordonInfo = fordon.buttons(counter, list); //returnerar 0,2,3 eller 4 beroende på vilken knapp
 					if(fordonInfo == -1) {
 						System.exit(0);
 					} else if(fordonInfo == 0) {
-						x = fordon.register(0);
+						x = fordon.register(0); //register personbil
 					} else if(fordonInfo == 1) {
-						x = fordon.register(1);
+						x = fordon.register(1);//register lastbil
 					} else if(fordonInfo == 2) {
-						fordon.utskrift(list, counter);
-						break;
+						fordon.utskrift(list, counter);//skriv ut alla fordon
+						break; //avsluta
 					} else if(fordonInfo == 3) {
-						fordon.check(list);
-						z = 1;
-						y++;
+						fordon.check(list);//sök efter fordon mha registernummer
+						z = 1; //ingenting addas till listan
+						y++;  //list.size() + 1
 					} else if(fordonInfo == 4) {
-						int check = confirm();
+						int check = confirm();// dubbelcheck
 						if(check == 0 || check == -1) {
-							fordon.end();
+							fordon.end();// avsluta programmet
 						} else {
-							z = 1;
-							y++;
+							z = 1; //ifall usern ångrar sig så gör z så att ingenting addas till listan
+							y++; //list.size() + 1
 						}
 					}
 					if (x != null) {
@@ -41,15 +41,15 @@ public class moment1to7_main {
 					while(checker == 1) {
 						checker = 0;
 						try {
-							if (x.length == 9) {
+							if (x.length == 9) { //Skapar personBil objektet
 								fordon = new personBil(x[0],x[1],x[2],x[3],Integer.parseInt(x[4]),Double.parseDouble(x[5]),Integer.parseInt(x[6]),Double.parseDouble(x[7]),Integer.parseInt(x[8]));
 							}
 								
-							else if (x.length == 8) {
+							else if (x.length == 8) { //skapar lastbil objektet
 								fordon = new lastBil(x[0],x[1],x[2],x[3],x[4],Integer.parseInt(x[5]),x[6],x[7]);
 							} 	
 								
-						} catch(Exception e) {
+						} catch(Exception e) { //if exception register pånytt och wile loopen hålls true mha checker
 								JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
 								if(fordonInfo == 0) {
 									x = fordon.register(0);
@@ -60,8 +60,8 @@ public class moment1to7_main {
 								}
 						}
 					}
-					if (z == 0) {
-						list.add(fordon);
+					if (z == 0) { //endast true vid registrering
+						list.add(fordon); //add to list
 						counter++;
 					}
 					}
@@ -72,7 +72,7 @@ public class moment1to7_main {
 
 
 
-	private static int confirm() {
+	private static int confirm() { // kollar att usern säkert vill avsluta
 		String[] mojligheter = new String [] {"ja", "nej"};
 		int svar = JOptionPane.showOptionDialog(null,
 				"Är du säker?"," ",

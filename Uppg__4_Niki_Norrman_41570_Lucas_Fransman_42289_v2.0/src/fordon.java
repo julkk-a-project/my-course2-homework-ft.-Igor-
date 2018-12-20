@@ -12,7 +12,7 @@ public class fordon extends abstractFordon {
 		this.owner = owner;
 	}
 	
-	public int buttons(int counter, ArrayList <fordon> list) {
+	public int buttons(int counter, ArrayList <fordon> list) { // usern väljer action
 		
 		String[] mojligheter = new String [] {"registrera person bil", "registrera last bil", "skriv ut","skriv ut en bils uppgifter" ,"avsluta"};
 		int svar = JOptionPane.showOptionDialog(null,
@@ -24,9 +24,9 @@ public class fordon extends abstractFordon {
 		
 	}
 	
-	public String [] register(int x) {
+	public String [] register(int x) { //skapar en lista med all data
 		String [] info = new String[0];
-		if (x == 0) {
+		if (x == 0) { //if personbil
 			try {
 				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, antal säten, motorvolym, hästkrafter, förbrukning och km\nex abc-123,stina,lexus,i200,5,2.2,201,8.3,20000").split(",");	
 				if(info.length != 9) {
@@ -36,7 +36,7 @@ public class fordon extends abstractFordon {
 				JOptionPane.showMessageDialog(null, "Kolla inputen\\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
 				register(x);
 			}
-		} else if (x == 1) {
+		} else if (x == 1) { //if lastbil
 			try {
 				info = JOptionPane.showInputDialog("Mata in register nummer, ägare, märke, modell, last, kapacitet, start och mål\nex abc-129,Stigu,Volvo,truck,tomater,15,Närpes,Helsingfors ").split(",");
 				if(info.length != 8) {
@@ -50,8 +50,8 @@ public class fordon extends abstractFordon {
 		return info;
 	}
 	
-	public void utskrift(ArrayList <fordon> list, int counter) {
-		tableMaker table = new tableMaker(counter, list);
+	public void utskrift(ArrayList <fordon> list, int counter) { //skriver ut tabell
+		tableMaker table = new tableMaker(counter, list); // skapar tabell
 		table.create();
 		table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		table.setSize(1300,list.size() * 16 + 100);
@@ -60,11 +60,11 @@ public class fordon extends abstractFordon {
 		
 	}
 	
-	public void end() {
+	public void end() { //avslutar programmet
 		System.exit(0);
 	}
 
-	public void check(ArrayList <fordon> list) {
+	public void check(ArrayList <fordon> list) { //kollar om ett angivet register nummer finns i listan och displayar all data som tillhör det nummret
 		String reg = " ";
 		int x = 1;
 		ArrayList <fordon> checkList = new ArrayList <fordon>(); 
@@ -84,7 +84,7 @@ public class fordon extends abstractFordon {
 			if(reg.equals(list.get(i).getRegNr())) {
 				y = 1;
 				checkList.add(list.get(i));
-				tableMaker checkOut = new tableMaker(1, checkList);
+				tableMaker checkOut = new tableMaker(1, checkList); //displayas i en tabell
 				checkOut.create();
 				checkOut.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				checkOut.setSize(1300,100);
@@ -92,7 +92,7 @@ public class fordon extends abstractFordon {
 				checkOut.setTitle(list.get(i).getRegNr());
 			}
 		}
-		if (y == 0) {
+		if (y == 0) { //if registernummret inte fanns angivet
 			JOptionPane.showMessageDialog(null, "fordonet du söker finns ej");
 		}
 	}

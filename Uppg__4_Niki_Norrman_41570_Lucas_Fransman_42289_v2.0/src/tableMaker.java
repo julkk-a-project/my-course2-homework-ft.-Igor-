@@ -5,6 +5,10 @@ import javax.swing.*;
 
 public class tableMaker extends JFrame {
 
+	/*
+	 * Skapar en tabell
+	 */
+	
 	JTable table;
 	int counter;
 	ArrayList <fordon> list;
@@ -21,7 +25,7 @@ public class tableMaker extends JFrame {
 		String [] column = {"regNr", "ägare", "märke", "modell", "säten", "last", "kapacitet", "start", "destination", "motor volym", "hk", "forbrukning", "km"};
 		Object [][] data = new Object [counter][13];
 		
-		for(int i = 0; i < 13; i++) {
+		for(int i = 0; i < 13; i++) { //skapar en 2d array med all data 
 			for(int x = 0; x < counter; x++) {
 				if(i == 0)
 					data [x][i] = list.get(x).getRegNr(); 

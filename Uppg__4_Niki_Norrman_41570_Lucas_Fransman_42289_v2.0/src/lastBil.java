@@ -16,7 +16,7 @@ public class lastBil extends fordon {
 		this.depart = depart;
 		this.destination = destination;
 	}
-	
+	// returnera variablarna
 	public String getMarke() {
 		return marke;
 	}
