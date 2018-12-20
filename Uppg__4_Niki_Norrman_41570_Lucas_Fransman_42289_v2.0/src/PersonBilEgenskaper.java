@@ -7,7 +7,6 @@ public class PersonBilEgenskaper implements IEgenskaper {
 
 	@Override
 	public String getProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		return "personbil";
 	}
 }

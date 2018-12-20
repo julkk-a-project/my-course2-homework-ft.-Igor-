@@ -6,8 +6,8 @@ public class moment1to7_main {
 
 	public static void main(String[] args) {
 		int counter = 0;
-		int z = 0;
-		int y = 1;
+		int z = 0; //för att skippa add
+		int y = 1; //för att 1+ till for loopen
 		String [] x = null;
 		ArrayList <fordon> list = new ArrayList <fordon>();//lista för fordon
 		fordon fordon = new fordon("","");
@@ -22,7 +22,8 @@ public class moment1to7_main {
 						x = fordon.register(1);//register lastbil
 					} else if(fordonInfo == 2) {
 						fordon.utskrift(list, counter);//skriv ut alla fordon
-						break; //avsluta
+						z = 1;
+						y++;
 					} else if(fordonInfo == 3) {
 						fordon.check(list);//sök efter fordon mha registernummer
 						z = 1; //ingenting addas till listan

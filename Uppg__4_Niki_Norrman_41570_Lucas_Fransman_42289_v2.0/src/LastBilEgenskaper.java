@@ -7,8 +7,7 @@ public class LastBilEgenskaper implements IEgenskaper {
 
 	@Override
 	public String getProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Lastbil";
 	}
 
 }

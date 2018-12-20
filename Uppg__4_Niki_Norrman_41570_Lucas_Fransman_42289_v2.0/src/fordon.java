@@ -33,8 +33,8 @@ public class fordon extends abstractFordon {
 					int z = 1 / 0;
 				}
 			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Kolla inputen\\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
-				register(x);
+				JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
+				return register(x);
 			}
 		} else if (x == 1) { //if lastbil
 			try {
@@ -44,7 +44,7 @@ public class fordon extends abstractFordon {
 				}
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Kolla inputen\nKom ihåg att fylla i all information och kommatecken emmellan\nse exemplet");
-				register(x);
+				 return register(x);
 			}
 		}
 		return info;
