@@ -8,6 +8,23 @@ public class PersonBil extends Fordon {
 		this.maker = maker;
 		this.model = model;
 		this.seats = seats;
+		this.type = 3;
+	}
+	
+
+	@Override
+	public String getProperties() {
+		return super.getProperties()+", "+model+", "+maker+", "+seats;
+	}
+	
+	public String getModel() {
+		return this.model;
+	}
+	public String getMaker() {
+		return this.maker;
+	}
+	public int getSeats() {
+		return this.seats;
 	}
 
 }

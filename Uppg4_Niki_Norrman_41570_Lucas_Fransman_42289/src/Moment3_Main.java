@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Moment2_Main {
+public class Moment3_Main {
 
 
 
@@ -39,7 +39,7 @@ public class Moment2_Main {
 	public static int typeChoser() { //För att hålla det consistent så skriver jag "Vehicle" iställe för fordon, "Car" istället för persionbil och "Truck" istället för lastbil.
 		String[] options = new String [] {"Vehicle", "Truck", "Car", "Back"};
 		int choser = JOptionPane.showOptionDialog(null, "What type do you want to register?\n\nVehicles take two inputs (owner, regNum)\n"
-													+ "Trucks take four inputs (owner, regNum, maker, model)\n"
+													+ "Trucks take eigth inputs (owner, regNum, maker, model, loadedWith, capacity, depart, destination)\n"
 													+ "Cars take five inputs (owner, regNum, maker, model, doorNum)\n\n"
 													+ "(you will later be promted to say how many of that specific vehicle you want to register in a row)", "Type Choser", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, options, options[3]);
 		return choser;
@@ -71,9 +71,10 @@ public class Moment2_Main {
 		return fordonlol;
 	}
 	public static AbstractFordon createTruck(){
-		String[] carInfo = new String[4];
+		String[] carInfo = new String[8];
 		carInfo = getTruckInfo(); //get regNr and owner info from user
-		AbstractFordon fordonlol = new LastBil(carInfo[0], carInfo[1], carInfo[2], carInfo[3]);
+		int carInt = getNormalInt(carInfo[5], " is not an integer. input cargo as an integer."); //converts number of seats into a number. includes error handling.
+		AbstractFordon fordonlol = new LastBil(carInfo[0], carInfo[1], carInfo[2], carInfo[3], carInfo[4], carInt, carInfo[6], carInfo[7]);
 		return fordonlol;
 	}
 	public static AbstractFordon createCar(){
@@ -93,8 +94,9 @@ public class Moment2_Main {
 	//READER
 	
 	public static void itemReader(AbstractFordon[] fordonar, int max) {
-		String buf = "[Reg. number]: [Owner], [Maker], [Model], [Seats]\n";
-		for (int i = 0; i < max; i++) {
+		String buf = "[Reg. number]: [Owner], [Maker], [Model], [Seats]\n"
+				   + "                              For trucks: [Loaded With], [Capacty], [Depart], [Destination]\n\n";
+		/*for (int i = 0; i < max; i++) {
 			int type = fordonar[i].getType();
 			String regNr = fordonar[i].getRegNr();
 			String owner = fordonar[i].getOwner();
@@ -102,7 +104,11 @@ public class Moment2_Main {
 			if (type == 2){
 				String maker = ((LastBil)fordonar[i]).getMaker();
 				String model = ((LastBil)fordonar[i]).getModel();
-				buf += ", " + maker + ", " + model;
+				String loadedWith = ((LastBil)fordonar[i]).getLoadedWith();
+				int capacity = ((LastBil)fordonar[i]).getCapacity();
+				String depart = ((LastBil)fordonar[i]).getDepart();
+				String destination = ((LastBil)fordonar[i]).getDestination();
+				buf += ", " + maker + ", " + model + ", " + loadedWith + ", " + capacity + ", " + depart + ", " + destination;
 			}
 			if (type == 3){
 				String maker = ((PersonBil)fordonar[i]).getMaker();
@@ -112,6 +118,10 @@ public class Moment2_Main {
 			}
 			buf += "\n";
 		}
+		JOptionPane.showMessageDialog(null, buf);
+		*/
+		for(int i = 0; i < max; i++)
+			buf += fordonar[i].getProperties()+"\n";
 		JOptionPane.showMessageDialog(null, buf);
 	}
 	
@@ -184,14 +194,14 @@ public class Moment2_Main {
 		}
 	}
 	public static String[] getTruckInfo(){
-		String[] buf2 = new String[4];
+		String[] buf2 = new String[8];
 		try {
 			String buf1 = JOptionPane.showInputDialog("Type the following information:\n"
-													+ "[Registration nr], [Owner], [Manufacturer], [Model]\n"
+													+ "[Registration nr], [Owner], [Manufacturer], [Model], [Loaded With], [Capacty], [Depart], [Destination]\n"
 													+ "seperated by a [,]comma\n");
 		
 			buf2 = buf1.split(",");
-			if (buf2.length == 4) {
+			if (buf2.length == 8) {
 				return buf2;
 			} else {
 				JOptionPane.showMessageDialog(null, "try reading the instructions...", "Error",0);
