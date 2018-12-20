@@ -30,6 +30,9 @@ public class Moment2_Main {
 		}
 	}
 	
+	
+	
+	
 	public static int mainMenu(int carNum) {
 		String[] options = new String [] {"Add vehicle(s)", "Read list", "Close program"};
 		int choser = JOptionPane.showOptionDialog(null, "You have registered "+carNum+" out of 10 cars.\nWhat do you want to do?", "Main Menu", JOptionPane.YES_NO_CANCEL_OPTION, 3, null, options, options[2]);
@@ -151,6 +154,11 @@ public class Moment2_Main {
 		}
 		return amount;
 	}
+	
+	
+	
+	
+	
 	
 	
 	
